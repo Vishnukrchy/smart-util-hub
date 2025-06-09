@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -30,6 +29,7 @@ import RegexTester from "./pages/web/RegexTester";
 import MarkdownToHtml from "./pages/web/MarkdownToHtml";
 import TimestampConverter from "./pages/web/TimestampConverter";
 import UuidGenerator from "./pages/web/UuidGenerator";
+import QrCodeGenerator from "./pages/web/QrCodeGenerator";
 
 // Productivity Tools
 import TodoTracker from "./pages/productivity/TodoTracker";
@@ -84,6 +84,7 @@ const App = () => (
               <Route path="/web/markdown-to-html" element={<MarkdownToHtml />} />
               <Route path="/web/timestamp-converter" element={<TimestampConverter />} />
               <Route path="/web/uuid-generator" element={<UuidGenerator />} />
+              <Route path="/web/qr-generator" element={<QrCodeGenerator />} />
               
               {/* Productivity Tools */}
               <Route path="/productivity/todo-tracker" element={<TodoTracker />} />

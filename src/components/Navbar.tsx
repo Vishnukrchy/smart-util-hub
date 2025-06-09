@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Home, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -75,6 +74,7 @@ const Navbar = () => {
                     <Link to="/web/json-formatter" className="block text-sm hover:text-primary">JSON Formatter</Link>
                     <Link to="/web/jwt-decoder" className="block text-sm hover:text-primary">JWT Decoder</Link>
                     <Link to="/web/regex-tester" className="block text-sm hover:text-primary">Regex Tester</Link>
+                    <Link to="/web/qr-generator" className="block text-sm hover:text-primary">QR Code Generator</Link>
                   </div>
                 </div>
               </div>

@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -52,7 +51,8 @@ const utilityCategories = [
       { name: "Regex Tester", path: "/web/regex-tester", description: "Test regular expressions" },
       { name: "Markdown to HTML", path: "/web/markdown-to-html", description: "Convert Markdown" },
       { name: "Timestamp Converter", path: "/web/timestamp-converter", description: "Convert timestamps" },
-      { name: "UUID Generator", path: "/web/uuid-generator", description: "Generate unique IDs" }
+      { name: "UUID Generator", path: "/web/uuid-generator", description: "Generate unique IDs" },
+      { name: "QR Code Generator", path: "/web/qr-generator", description: "Generate QR codes" }
     ]
   },
   {
