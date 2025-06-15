@@ -1,6 +1,6 @@
-
-import { Link } from "react-router-dom";
-import { Home, Menu } from "lucide-react";
+import { useSupabaseAuth } from "@/hooks/useSupabaseAuth";
+import { Link, useNavigate } from "react-router-dom";
+import { Home, Menu, User2, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
@@ -75,6 +75,9 @@ const menuCategories = [
 ];
 
 const Navbar = () => {
+  const { user, signOut } = useSupabaseAuth();
+  const navigate = useNavigate();
+
   return (
     <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -94,6 +97,33 @@ const Navbar = () => {
               Dashboard
             </Button>
           </Link>
+          {user ? (
+            <>
+              <span className="hidden sm:flex items-center text-sm">
+                <User2 className="w-4 h-4 mr-1" />
+                {user.email}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={async () => {
+                  await signOut();
+                  navigate("/auth");
+                }}
+              >
+                <LogOut className="w-4 h-4 mr-1" />
+                Log out
+              </Button>
+            </>
+          ) : (
+            <Button
+              variant="default"
+              size="sm"
+              onClick={() => navigate("/auth")}
+            >
+              Log in
+            </Button>
+          )}
 
           <Sheet>
             <SheetTrigger asChild>
