@@ -80,7 +80,7 @@ function hello() {
 }
 \`\`\`
 
-> This is a blockquote
+{"> This is a blockquote"}
 
 [Visit OpenAI](https://openai.com)`;
 
@@ -179,7 +179,7 @@ function hello() {
                 <p><code>- List item</code> → Bullet list</p>
                 <p><code>[link](url)</code> → Hyperlink</p>
                 <p><code>`code`</code> → Inline code</p>
-                <p><code>> Quote</code> → Blockquote</p>
+                <p><code>{">"} Quote</code> → Blockquote</p>
               </div>
             </div>
           </CardContent>
