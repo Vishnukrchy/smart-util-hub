@@ -1,5 +1,4 @@
-
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Home, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -75,6 +74,8 @@ const menuCategories = [
 ];
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -92,6 +93,16 @@ const Navbar = () => {
             <Button variant="ghost" size="sm" className="hidden md:flex">
               <Home className="w-4 h-4 mr-2" />
               Dashboard
+            </Button>
+          </Link>
+
+          <Link to="/connect">
+            <Button
+              variant={location.pathname === "/connect" ? "secondary" : "outline"}
+              size="sm"
+              className="transition-all shadow-sm border-purple-500 text-purple-700 !font-semibold"
+            >
+              Connect
             </Button>
           </Link>
 

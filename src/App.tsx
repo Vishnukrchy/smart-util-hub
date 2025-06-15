@@ -48,6 +48,8 @@ import CoinFlip from "./pages/fun/CoinFlip";
 import QuoteOfDay from "./pages/fun/QuoteOfDay";
 import SpeedTester from "./pages/fun/SpeedTester";
 
+import Connect from "./pages/Connect"; // NEW
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -103,6 +105,7 @@ const App = () => (
               <Route path="/fun/quote-of-day" element={<QuoteOfDay />} />
               <Route path="/fun/speed-tester" element={<SpeedTester />} />
               
+              <Route path="/connect" element={<Connect />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
