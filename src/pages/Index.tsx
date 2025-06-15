@@ -33,6 +33,19 @@ const utilityCategories = [
     ]
   },
   {
+    title: "🎨 UI Tools",
+    description: "Design and styling utilities",
+    icon: Palette,
+    color: "from-pink-500 to-rose-500",
+    tools: [
+      { name: "Image Resizer", path: "/ui/image-resizer", description: "Resize images" },
+      { name: "Gradient Generator", path: "/ui/gradient-generator", description: "Create CSS gradients" },
+      { name: "Favicon Generator", path: "/ui/favicon-generator", description: "Generate favicons" },
+      { name: "Color Contrast", path: "/ui/color-contrast", description: "Check color contrast" },
+      { name: "Box Shadow Generator", path: "/ui/box-shadow", description: "Create CSS shadows" }
+    ]
+  },
+  {
     title: "📈 Productivity Tools",
     description: "Stay organized and productive",
     icon: Calendar,
@@ -66,19 +79,6 @@ const utilityCategories = [
       { name: "Merge PDFs", path: "/files/merge-pdfs", description: "Combine multiple PDFs" },
       { name: "File Compressor", path: "/files/compressor", description: "Reduce file sizes" },
       { name: "CSV to JSON", path: "/files/csv-to-json", description: "Convert CSV to JSON" }
-    ]
-  },
-  {
-    title: "🎨 UI Tools",
-    description: "Design and styling utilities",
-    icon: Palette,
-    color: "from-pink-500 to-rose-500",
-    tools: [
-      { name: "Image Resizer", path: "/ui/image-resizer", description: "Resize images" },
-      { name: "Gradient Generator", path: "/ui/gradient-generator", description: "Create CSS gradients" },
-      { name: "Favicon Generator", path: "/ui/favicon-generator", description: "Generate favicons" },
-      { name: "Color Contrast", path: "/ui/color-contrast", description: "Check color contrast" },
-      { name: "Box Shadow Generator", path: "/ui/box-shadow", description: "Create CSS shadows" }
     ]
   },
   {
