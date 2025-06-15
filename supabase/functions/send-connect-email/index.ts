@@ -6,7 +6,7 @@ import { Resend } from "npm:resend@2.0.0";
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 // Update to your developer email address or ask the user for this:
-const DEVELOPER_EMAIL = "YOUR_DEVELOPER_EMAIL@domain.com";
+const DEVELOPER_EMAIL = "vishnukrkamat@gmail.com";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
