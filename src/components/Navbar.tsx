@@ -1,6 +1,8 @@
+
 import { Link } from "react-router-dom";
 import { Home, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Sheet,
   SheetContent,
@@ -10,9 +12,71 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+const menuCategories = [
+  {
+    title: "🌐 Web & Dev Tools",
+    links: [
+      { name: "URL Shortener", path: "/web/url-shortener" },
+      { name: "YouTube Downloader", path: "/web/youtube-downloader" },
+      { name: "JSON Formatter", path: "/web/json-formatter" },
+      { name: "JWT Decoder", path: "/web/jwt-decoder" },
+      { name: "Regex Tester", path: "/web/regex-tester" },
+      { name: "Markdown to HTML", path: "/web/markdown-to-html" },
+      { name: "Timestamp Converter", path: "/web/timestamp-converter" },
+      { name: "UUID Generator", path: "/web/uuid-generator" },
+      { name: "QR Code Generator", path: "/web/qr-generator" }
+    ]
+  },
+  {
+    title: "📈 Productivity Tools",
+    links: [
+      { name: "Todo Tracker", path: "/productivity/todo-tracker" },
+      { name: "Daily Planner", path: "/productivity/daily-planner" },
+      { name: "Sticky Notes", path: "/productivity/sticky-notes" }
+    ]
+  },
+  {
+    title: "🧠 AI Features",
+    links: [
+      { name: "Prompt Enhancer", path: "/ai/prompt-enhancer" },
+      { name: "Resume Improver", path: "/ai/resume-improver" },
+      { name: "Mood Analyzer", path: "/ai/mood-analyzer" },
+      { name: "AI Chat Tester", path: "/ai/chat-tester" }
+    ]
+  },
+  {
+    title: "📄 File Tools",
+    links: [
+      { name: "PDF to Word", path: "/files/pdf-to-word" },
+      { name: "Image to Text", path: "/files/image-to-text" },
+      { name: "Merge PDFs", path: "/files/merge-pdfs" },
+      { name: "File Compressor", path: "/files/compressor" },
+      { name: "CSV to JSON", path: "/files/csv-to-json" }
+    ]
+  },
+  {
+    title: "🎨 UI Tools",
+    links: [
+      { name: "Image Resizer", path: "/ui/image-resizer" },
+      { name: "Gradient Generator", path: "/ui/gradient-generator" },
+      { name: "Favicon Generator", path: "/ui/favicon-generator" },
+      { name: "Color Contrast", path: "/ui/color-contrast" },
+      { name: "Box Shadow Generator", path: "/ui/box-shadow" }
+    ]
+  },
+  {
+    title: "🧪 Fun & Extras",
+    links: [
+      { name: "Coin Flip", path: "/fun/coin-flip" },
+      { name: "Quote of the Day", path: "/fun/quote-of-day" },
+      { name: "Speed Tester", path: "/fun/speed-tester" }
+    ]
+  }
+];
+
 const Navbar = () => {
   return (
-    <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
@@ -34,53 +98,40 @@ const Navbar = () => {
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="sm">
-                <Menu className="w-4 h-4" />
+                <Menu className="w-4 h-4 mr-2" />
+                <span className="hidden sm:inline">Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="w-[300px] sm:w-[400px]">
               <SheetHeader>
-                <SheetTitle>SmartUtil Tools</SheetTitle>
-                <SheetDescription>
+                <SheetTitle className="text-left">SmartUtil Tools</SheetTitle>
+                <SheetDescription className="text-left">
                   Navigate to any utility tool
                 </SheetDescription>
               </SheetHeader>
-              <div className="mt-6 space-y-4">
-                <div>
-                  <h3 className="font-semibold mb-2">🧠 AI Features</h3>
-                  <div className="space-y-1 ml-4">
-                    <Link to="/ai/prompt-enhancer" className="block text-sm hover:text-primary">Prompt Enhancer</Link>
-                    <Link to="/ai/resume-improver" className="block text-sm hover:text-primary">Resume Improver</Link>
-                    <Link to="/ai/mood-analyzer" className="block text-sm hover:text-primary">Mood Analyzer</Link>
-                    <Link to="/ai/chat-tester" className="block text-sm hover:text-primary">AI Chat Tester</Link>
-                  </div>
+              
+              <ScrollArea className="h-[calc(100vh-120px)] mt-6">
+                <div className="space-y-6 pr-4">
+                  {menuCategories.map((category, index) => (
+                    <div key={index} className="space-y-2">
+                      <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
+                        {category.title}
+                      </h3>
+                      <div className="space-y-1 ml-2">
+                        {category.links.map((link, linkIndex) => (
+                          <Link 
+                            key={linkIndex} 
+                            to={link.path} 
+                            className="block text-sm py-2 px-3 rounded-md hover:bg-muted hover:text-foreground transition-colors"
+                          >
+                            {link.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-2">📄 File Tools</h3>
-                  <div className="space-y-1 ml-4">
-                    <Link to="/files/pdf-to-word" className="block text-sm hover:text-primary">PDF to Word</Link>
-                    <Link to="/files/image-to-text" className="block text-sm hover:text-primary">Image to Text</Link>
-                    <Link to="/files/merge-pdfs" className="block text-sm hover:text-primary">Merge PDFs</Link>
-                    <Link to="/files/compressor" className="block text-sm hover:text-primary">File Compressor</Link>
-                    <Link to="/files/csv-to-json" className="block text-sm hover:text-primary">CSV to JSON</Link>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold mb-2">🌐 Web & Dev Tools</h3>
-                  <div className="space-y-1 ml-4">
-                    <Link to="/web/url-shortener" className="block text-sm hover:text-primary">URL Shortener</Link>
-                    <Link to="/web/youtube-downloader" className="block text-sm hover:text-primary">YouTube Downloader</Link>
-                    <Link to="/web/json-formatter" className="block text-sm hover:text-primary">JSON Formatter</Link>
-                    <Link to="/web/jwt-decoder" className="block text-sm hover:text-primary">JWT Decoder</Link>
-                    <Link to="/web/regex-tester" className="block text-sm hover:text-primary">Regex Tester</Link>
-                    <Link to="/web/markdown-to-html" className="block text-sm hover:text-primary">Markdown to HTML</Link>
-                    <Link to="/web/timestamp-converter" className="block text-sm hover:text-primary">Timestamp Converter</Link>
-                    <Link to="/web/uuid-generator" className="block text-sm hover:text-primary">UUID Generator</Link>
-                    <Link to="/web/qr-generator" className="block text-sm hover:text-primary">QR Code Generator</Link>
-                  </div>
-                </div>
-              </div>
+              </ScrollArea>
             </SheetContent>
           </Sheet>
         </div>
