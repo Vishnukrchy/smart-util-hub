@@ -74,6 +74,9 @@ const Navbar = () => {
                     <Link to="/web/json-formatter" className="block text-sm hover:text-primary">JSON Formatter</Link>
                     <Link to="/web/jwt-decoder" className="block text-sm hover:text-primary">JWT Decoder</Link>
                     <Link to="/web/regex-tester" className="block text-sm hover:text-primary">Regex Tester</Link>
+                    <Link to="/web/markdown-to-html" className="block text-sm hover:text-primary">Markdown to HTML</Link>
+                    <Link to="/web/timestamp-converter" className="block text-sm hover:text-primary">Timestamp Converter</Link>
+                    <Link to="/web/uuid-generator" className="block text-sm hover:text-primary">UUID Generator</Link>
                     <Link to="/web/qr-generator" className="block text-sm hover:text-primary">QR Code Generator</Link>
                   </div>
                 </div>
