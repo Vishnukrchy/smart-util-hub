@@ -53,6 +53,20 @@ const Auth = () => {
     }
   };
 
+  // Google Sign in/up handler
+  const handleGoogleAuth = async () => {
+    setLoading(true);
+    const redirectTo = `${window.location.origin}/`;
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo }
+    });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Google sign in failed", description: error.message });
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-2">
       <Card className="w-full max-w-sm">
@@ -103,6 +117,20 @@ const Auth = () => {
                 : mode === "login" ? "Log In" : "Sign Up"}
             </Button>
           </form>
+          <div className="my-4 flex items-center gap-4">
+            <div className="h-px flex-1 bg-muted-foreground/20" />
+            <span className="text-xs text-muted-foreground">or</span>
+            <div className="h-px flex-1 bg-muted-foreground/20" />
+          </div>
+          <Button
+            className="w-full"
+            variant="outline"
+            type="button"
+            onClick={handleGoogleAuth}
+            disabled={loading}
+          >
+            Continue with Google
+          </Button>
           <div className="mt-6 text-center">
             <Button variant="link" size="sm" type="button" onClick={() => setMode(mode === "login" ? "signup" : "login")}>
               {mode === "login"
@@ -120,3 +148,4 @@ const Auth = () => {
 };
 
 export default Auth;
+
