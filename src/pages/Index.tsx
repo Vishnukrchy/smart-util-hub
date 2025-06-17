@@ -63,9 +63,10 @@ const utilityCategories = [
     color: "from-purple-500 to-pink-500",
     tools: [
       { name: "Prompt Enhancer", path: "/ai/prompt-enhancer", description: "Improve your AI prompts" },
-      { name: "Resume Improver", path: "/ai/resume-improver", description: "Enhance your resume text" },
+      { name: "Email Assistant", path: "/ai/email-assistant", description: "AI Email Assistant to help you write reply emails" },
       { name: "Mood Analyzer", path: "/ai/mood-analyzer", description: "Analyze text sentiment" },
-      { name: "AI Chat Tester", path: "/ai/chat-tester", description: "Test AI conversations" }
+      { name: "AI Chat Tester", path: "/ai/chat-tester", description: "Test AI conversations" },
+      { name: "Resume Improver", path: "/ai/resume-improver", description: "Enhance your resume text" }
     ]
   },
   {
