@@ -40,7 +40,8 @@ const menuCategories = [
       { name: "Prompt Enhancer", path: "/ai/prompt-enhancer" },
       { name: "Resume Improver", path: "/ai/resume-improver" },
       { name: "Mood Analyzer", path: "/ai/mood-analyzer" },
-      { name: "AI Chat Tester", path: "/ai/chat-tester" }
+      { name: "AI Chat Tester", path: "/ai/chat-tester" },
+      { name: "Email Assistant", path: "/ai/email-assistant" },
     ]
   },
   {
@@ -103,6 +104,16 @@ const Navbar = () => {
               className="transition-all shadow-sm border-purple-500 text-purple-700 !font-semibold"
             >
               Connect
+            </Button>
+          </Link>
+
+          <Link to="/about">
+            <Button
+              variant={location.pathname === "/about" ? "secondary" : "outline"}
+              size="sm"
+              className="transition-all shadow-sm border-blue-500 text-blue-700 !font-semibold"
+            >
+              About
             </Button>
           </Link>
 

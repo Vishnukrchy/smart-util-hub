@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -6,7 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles, Copy } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ToolLayout from "@/components/ToolLayout";
-import { mockPrompts } from "@/data/mockData";
+import { geminiChatCompletion } from "@/lib/gemini";
+import ReactMarkdown from "react-markdown";
+
 
 const PromptEnhancer = () => {
   const [inputPrompt, setInputPrompt] = useState("");
@@ -23,17 +24,27 @@ const PromptEnhancer = () => {
       });
       return;
     }
-
     setIsLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      setEnhancedPrompt(mockPrompts.enhanced);
-      setIsLoading(false);
+    setEnhancedPrompt("");
+    try {
+      const result = await geminiChatCompletion(
+        `Improve and expand this prompt for better AI results: ${inputPrompt}`,
+        "You are a prompt engineering assistant. Enhance the user's prompt for clarity, detail, and effectiveness."
+      );
+      setEnhancedPrompt(result);
       toast({
         title: "Success",
         description: "Prompt enhanced successfully!"
       });
-    }, 2000);
+    } catch (err: any) {
+      toast({
+        title: "Error",
+        description: err.message || "Failed to enhance prompt",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const copyToClipboard = (text: string) => {
@@ -91,7 +102,9 @@ const PromptEnhancer = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm leading-relaxed">{enhancedPrompt}</p>
+              <div className="prose prose-sm dark:prose-invert">
+                <ReactMarkdown>{enhancedPrompt}</ReactMarkdown>
+              </div>
             </CardContent>
           </Card>
         )}

@@ -12,6 +12,7 @@ import PromptEnhancer from "./pages/ai/PromptEnhancer";
 import ResumeImprover from "./pages/ai/ResumeImprover";
 import MoodAnalyzer from "./pages/ai/MoodAnalyzer";
 import AiChatTester from "./pages/ai/AiChatTester";
+import EmailAssistant from "./pages/ai/EmailAssistant";
 
 // File Tools
 import PdfToWord from "./pages/files/PdfToWord";
@@ -49,6 +50,7 @@ import QuoteOfDay from "./pages/fun/QuoteOfDay";
 import SpeedTester from "./pages/fun/SpeedTester";
 
 import Connect from "./pages/Connect"; // NEW
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +71,7 @@ const App = () => (
               <Route path="/ai/resume-improver" element={<ResumeImprover />} />
               <Route path="/ai/mood-analyzer" element={<MoodAnalyzer />} />
               <Route path="/ai/chat-tester" element={<AiChatTester />} />
+              <Route path="/ai/email-assistant" element={<EmailAssistant />} />
               
               {/* File Tools */}
               <Route path="/files/pdf-to-word" element={<PdfToWord />} />
@@ -106,6 +109,7 @@ const App = () => (
               <Route path="/fun/speed-tester" element={<SpeedTester />} />
               
               <Route path="/connect" element={<Connect />} />
+              <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
