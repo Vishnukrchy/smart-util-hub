@@ -1,54 +1,86 @@
 
 import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
 import ToolLayout from "@/components/ToolLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RefreshCw, Quote } from "lucide-react";
 import { toast } from "sonner";
 
-interface QuoteResponse {
+interface QuoteData {
   content: string;
   author: string;
   tags: string[];
 }
 
-const fetchQuote = async (): Promise<QuoteResponse> => {
-  const response = await fetch('https://api.quotable.io/random');
-  if (!response.ok) {
-    throw new Error('Failed to fetch quote');
+// Fallback quotes when API fails
+const fallbackQuotes: QuoteData[] = [
+  {
+    content: "The only way to do great work is to love what you do.",
+    author: "Steve Jobs",
+    tags: ["motivation", "work", "passion"]
+  },
+  {
+    content: "Life is what happens to you while you're busy making other plans.",
+    author: "John Lennon",
+    tags: ["life", "wisdom"]
+  },
+  {
+    content: "The future belongs to those who believe in the beauty of their dreams.",
+    author: "Eleanor Roosevelt",
+    tags: ["dreams", "future", "inspiration"]
+  },
+  {
+    content: "It is during our darkest moments that we must focus to see the light.",
+    author: "Aristotle",
+    tags: ["hope", "wisdom", "perseverance"]
+  },
+  {
+    content: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    author: "Winston Churchill",
+    tags: ["success", "courage", "perseverance"]
   }
-  return response.json();
-};
+];
 
 const QuoteOfDay = () => {
-  const { data: quote, isLoading, error, refetch } = useQuery({
-    queryKey: ['quote'],
-    queryFn: fetchQuote,
-  });
+  const [quote, setQuote] = useState<QuoteData | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleNewQuote = () => {
-    refetch();
-    toast.success("New quote loaded!");
+  const fetchQuote = async () => {
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      // Try the API first
+      const response = await fetch('https://api.quotable.io/random');
+      if (!response.ok) {
+        throw new Error('API unavailable');
+      }
+      const data = await response.json();
+      setQuote({
+        content: data.content,
+        author: data.author,
+        tags: data.tags || []
+      });
+      toast.success("New quote loaded!");
+    } catch (err) {
+      // Fallback to local quotes
+      console.log('API failed, using fallback quotes');
+      const randomQuote = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+      setQuote(randomQuote);
+      toast.success("Quote loaded!");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  if (error) {
-    return (
-      <ToolLayout
-        title="💬 Quote of the Day"
-        description="Get daily inspiration with motivational quotes."
-      >
-        <div className="text-center py-12">
-          <h3 className="text-lg font-semibold mb-2 text-red-600">Error Loading Quote</h3>
-          <p className="text-muted-foreground mb-4">Unable to fetch quote. Please try again.</p>
-          <Button onClick={handleNewQuote}>
-            <RefreshCw className="w-4 h-4 mr-2" />
-            Try Again
-          </Button>
-        </div>
-      </ToolLayout>
-    );
-  }
+  useEffect(() => {
+    fetchQuote();
+  }, []);
+
+  const handleNewQuote = () => {
+    fetchQuote();
+  };
 
   return (
     <ToolLayout
