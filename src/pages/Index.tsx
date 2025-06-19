@@ -154,7 +154,7 @@ const Index = () => {
         {/* Footer */}
         <div className="text-center py-8 border-t">
           <p className="text-muted-foreground">
-            Built with React, TypeScript, and Tailwind CSS. Ready for backend integration.
+            Built with React, TypeScript, and Tailwind CSS, and Python , and Gemini 
           </p>
         </div>
       </div>

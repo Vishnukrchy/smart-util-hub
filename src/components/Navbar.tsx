@@ -67,6 +67,7 @@ const menuCategories = [
   {
     title: "🧪 Fun & Extras",
     links: [
+      { name: "Chat Room", path: "/chat" },
       { name: "Coin Flip", path: "/fun/coin-flip" },
       { name: "Quote of the Day", path: "/fun/quote-of-day" },
       { name: "Speed Tester", path: "/fun/speed-tester" }

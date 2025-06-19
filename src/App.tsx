@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import ChatRoom from "./pages/ChatRoom";
 
 // AI Features
 import PromptEnhancer from "./pages/ai/PromptEnhancer";
@@ -65,6 +66,7 @@ const App = () => (
           <main className="flex-1 container mx-auto px-4 py-8 overflow-auto">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/chat" element={<ChatRoom />} />
               
               {/* AI Features */}
               <Route path="/ai/prompt-enhancer" element={<PromptEnhancer />} />
