@@ -14,6 +14,10 @@ import ResumeImprover from "./pages/ai/ResumeImprover";
 import MoodAnalyzer from "./pages/ai/MoodAnalyzer";
 import AiChatTester from "./pages/ai/AiChatTester";
 import EmailAssistant from "./pages/ai/EmailAssistant";
+import LinkedInPostGenerator from "./pages/ai/LinkedInPostGenerator";
+import InstagramPostGenerator from "./pages/ai/InstagramPostGenerator";
+import TwitterPostGenerator from "./pages/ai/TwitterPostGenerator";
+import AIPostGenerator from "./pages/ai/AIPostGenerator";
 
 // File Tools
 import PdfToWord from "./pages/files/PdfToWord";
@@ -32,6 +36,8 @@ import MarkdownToHtml from "./pages/web/MarkdownToHtml";
 import TimestampConverter from "./pages/web/TimestampConverter";
 import UuidGenerator from "./pages/web/UuidGenerator";
 import QrCodeGenerator from "./pages/web/QrCodeGenerator";
+import HTTPCats from "./pages/web/HTTPCats";
+import XKCDComic from "./pages/web/XKCDComic";
 
 // Productivity Tools
 import TodoTracker from "./pages/productivity/TodoTracker";
@@ -49,6 +55,8 @@ import BoxShadowGenerator from "./pages/ui/BoxShadowGenerator";
 import CoinFlip from "./pages/fun/CoinFlip";
 import QuoteOfDay from "./pages/fun/QuoteOfDay";
 import SpeedTester from "./pages/fun/SpeedTester";
+import MemeGenerator from "./pages/fun/MemeGenerator";
+import TriviaQuiz from "./pages/fun/TriviaQuiz";
 
 import Connect from "./pages/Connect"; // NEW
 import About from "./pages/About";
@@ -74,6 +82,10 @@ const App = () => (
               <Route path="/ai/mood-analyzer" element={<MoodAnalyzer />} />
               <Route path="/ai/chat-tester" element={<AiChatTester />} />
               <Route path="/ai/email-assistant" element={<EmailAssistant />} />
+              <Route path="/ai/post-generator" element={<AIPostGenerator />} />
+              <Route path="/ai/post-generator/linkedin" element={<LinkedInPostGenerator />} />
+              <Route path="/ai/post-generator/instagram" element={<InstagramPostGenerator />} />
+              <Route path="/ai/post-generator/twitter" element={<TwitterPostGenerator />} />
               
               {/* File Tools */}
               <Route path="/files/pdf-to-word" element={<PdfToWord />} />
@@ -92,6 +104,8 @@ const App = () => (
               <Route path="/web/timestamp-converter" element={<TimestampConverter />} />
               <Route path="/web/uuid-generator" element={<UuidGenerator />} />
               <Route path="/web/qr-generator" element={<QrCodeGenerator />} />
+              <Route path="/web/http-cats" element={<HTTPCats />} />
+              <Route path="/web/xkcd-comic" element={<XKCDComic />} />
               
               {/* Productivity Tools */}
               <Route path="/productivity/todo-tracker" element={<TodoTracker />} />
@@ -108,6 +122,8 @@ const App = () => (
               {/* Fun & Extras */}
               <Route path="/fun/coin-flip" element={<CoinFlip />} />
               <Route path="/fun/quote-of-day" element={<QuoteOfDay />} />
+              <Route path="/fun/meme-generator" element={<MemeGenerator />} />
+              <Route path="/fun/trivia-quiz" element={<TriviaQuiz />} />
               <Route path="/fun/speed-tester" element={<SpeedTester />} />
               
               <Route path="/connect" element={<Connect />} />

@@ -16,14 +16,17 @@ const menuCategories = [
     title: "🌐 Web & Dev Tools",
     links: [
       { name: "URL Shortener", path: "/web/url-shortener" },
-      { name: "YouTube Downloader", path: "/web/youtube-downloader" },
       { name: "JSON Formatter", path: "/web/json-formatter" },
       { name: "JWT Decoder", path: "/web/jwt-decoder" },
       { name: "Regex Tester", path: "/web/regex-tester" },
       { name: "Markdown to HTML", path: "/web/markdown-to-html" },
       { name: "Timestamp Converter", path: "/web/timestamp-converter" },
       { name: "UUID Generator", path: "/web/uuid-generator" },
-      { name: "QR Code Generator", path: "/web/qr-generator" }
+      { name: "QR Code Generator", path: "/web/qr-generator" },
+      { name: "YouTube Downloader", path: "/web/youtube-downloader" },
+      { name: "Speed Tester", path: "/fun/speed-tester" },
+      { name: "HTTP Status Cats", path: "/web/http-cats" },
+      { name: "Random XKCD Comic", path: "/web/xkcd-comic" }
     ]
   },
   {
@@ -37,6 +40,7 @@ const menuCategories = [
   {
     title: "🧠 AI Features",
     links: [
+      { name: "AI Post Generator", path: "/ai/post-generator" },
       { name: "Prompt Enhancer", path: "/ai/prompt-enhancer" },
       { name: "Resume Improver", path: "/ai/resume-improver" },
       { name: "Mood Analyzer", path: "/ai/mood-analyzer" },
@@ -70,7 +74,8 @@ const menuCategories = [
       { name: "Chat Room", path: "/chat" },
       { name: "Coin Flip", path: "/fun/coin-flip" },
       { name: "Quote of the Day", path: "/fun/quote-of-day" },
-      { name: "Speed Tester", path: "/fun/speed-tester" }
+      { name: "Random Meme Generator", path: "/fun/meme-generator" },
+      { name: "Trivia Quiz", path: "/fun/trivia-quiz" }
     ]
   }
 ];
