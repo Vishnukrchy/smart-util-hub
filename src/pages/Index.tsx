@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,14 +21,17 @@ const utilityCategories = [
     color: "from-green-500 to-emerald-500",
     tools: [
       { name: "URL Shortener", path: "/web/url-shortener", description: "Create short URLs" },
-      { name: "YouTube Downloader", path: "/web/youtube-downloader", description: "Download YouTube videos" },
       { name: "JSON Formatter", path: "/web/json-formatter", description: "Format and validate JSON" },
       { name: "JWT Decoder", path: "/web/jwt-decoder", description: "Decode JWT tokens" },
       { name: "Regex Tester", path: "/web/regex-tester", description: "Test regular expressions" },
       { name: "Markdown to HTML", path: "/web/markdown-to-html", description: "Convert Markdown" },
       { name: "Timestamp Converter", path: "/web/timestamp-converter", description: "Convert timestamps" },
       { name: "UUID Generator", path: "/web/uuid-generator", description: "Generate unique IDs" },
-      { name: "QR Code Generator", path: "/web/qr-generator", description: "Generate QR codes" }
+      { name: "QR Code Generator", path: "/web/qr-generator", description: "Generate QR codes" },
+      { name: "YouTube Downloader", path: "/web/youtube-downloader", description: "Download YouTube videos" },
+      { name: "Speed Tester", path: "/fun/speed-tester", description: "Test internet speed" },
+      { name: "HTTP Status Cats", path: "/web/http-cats", description: "See HTTP status codes as funny cat images" },
+      { name: "Random XKCD Comic", path: "/web/xkcd-comic", description: "Get a random XKCD comic for a geeky laugh" }
     ]
   },
   {
@@ -62,6 +64,7 @@ const utilityCategories = [
     icon: Brain,
     color: "from-purple-500 to-pink-500",
     tools: [
+      { name: "AI Post Generator", path: "/ai/post-generator", description: "Generate LinkedIn, Instagram, or Twitter posts with AI" },
       { name: "Prompt Enhancer", path: "/ai/prompt-enhancer", description: "Improve your AI prompts" },
       { name: "Email Assistant", path: "/ai/email-assistant", description: "AI Email Assistant to help you write reply emails" },
       { name: "Mood Analyzer", path: "/ai/mood-analyzer", description: "Analyze text sentiment" },
@@ -90,7 +93,8 @@ const utilityCategories = [
     tools: [
       { name: "Coin Flip", path: "/fun/coin-flip", description: "Flip a virtual coin" },
       { name: "Quote of the Day", path: "/fun/quote-of-day", description: "Daily inspiration" },
-      { name: "Speed Tester", path: "/fun/speed-tester", description: "Test internet speed" }
+      { name: "Random Meme Generator", path: "/fun/meme-generator", description: "Get a random meme to brighten your day" },
+      { name: "Trivia Quiz", path: "/fun/trivia-quiz", description: "Test your knowledge with a quick trivia quiz!" }
     ]
   }
 ];
@@ -154,7 +158,7 @@ const Index = () => {
         {/* Footer */}
         <div className="text-center py-8 border-t">
           <p className="text-muted-foreground">
-            Built with React, TypeScript, and Tailwind CSS. Ready for backend integration.
+            Built with React, TypeScript, and Tailwind CSS, and Python , and Gemini 
           </p>
         </div>
       </div>
